@@ -1,24 +1,29 @@
 import { ReactElement } from 'react';
-import './App.css';
-import logo from './logo.svg';
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  RouteObject,
+  Routes,
+} from 'react-router-dom';
+import HomeRoutes from './modules/Home/Routes';
 
 function App(): ReactElement {
+  const routes: RouteObject[] = [...HomeRoutes];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="flex h-screen w-screen bg-slate-50">
+        {/* <div className=""> */}
+        <Routes>
+          {routes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        {/* </div> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
