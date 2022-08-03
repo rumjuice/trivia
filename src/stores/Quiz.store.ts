@@ -1,11 +1,27 @@
 import { makeAutoObservable } from 'mobx';
+import repo from '../modules/Home/repos';
+import { Quiz } from '../modules/Home/Types.home';
 
 export default class QuizStore {
-  // private _cart: IndexedCart = {};
-  isCartReady = true;
+  quiz: Quiz[] = [];
+  error: Error | undefined;
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  async getQuiz(): Promise<void> {
+    try {
+      const quiz = await repo.get();
+      this.quiz = quiz.results;
+    } catch (error) {
+      this.error = error;
+    }
+  }
+
+  clear(): void {
+    this.quiz = [];
+    this.error = undefined;
   }
 
   // get cartAmount(): number {

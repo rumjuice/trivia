@@ -1,24 +1,22 @@
-import { FC, useCallback, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { Card } from '../../../components';
 import { HomeButton, HomeContent } from '../components';
-import { getQuiz } from '../repos';
-import { Quiz } from '../Types.home';
 
 const Intro: FC = () => {
-  const [quiz, setQuiz] = useState<Quiz[]>();
+  // const [quiz, setQuiz] = useState<Quiz[]>();
 
-  useEffect(() => {
-    fetchQuiz();
-  }, []);
+  // useEffect(() => {
+  //   fetchQuiz();
+  // }, []);
 
-  const fetchQuiz = useCallback(async () => {
-    try {
-      const data = await getQuiz();
-      setQuiz(data.results);
-    } catch (error) {
-      alert(error);
-    }
-  }, []);
+  // const fetchQuiz = useCallback(async () => {
+  //   try {
+  //     const data = await repo.get();
+  //     setQuiz(data.results);
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // }, []);
 
   return (
     <Card

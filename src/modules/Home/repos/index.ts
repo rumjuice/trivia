@@ -1,3 +1,3 @@
-import getQuiz from './GetQuiz';
+import { get } from './Quiz.repo';
 
-export { getQuiz };
+export default { get };
