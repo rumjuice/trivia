@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "experimentalDecorators": true,
-    "noImplicitAny": true,
+    // "noImplicitAny": true,
     "removeComments": true,
     "useUnknownInCatchVariables": false,
     "jsx": "react-jsx"
