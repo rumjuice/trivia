@@ -1,5 +1,5 @@
 import { RouteObject } from 'react-router-dom';
-import Intro from './views';
+import Intro from './pages';
 
 const HomeRoutes: RouteObject[] = [
   {

@@ -2,7 +2,7 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { Card } from '../../../components';
 import { HomeButton, HomeContent } from '../components';
 import { getQuiz } from '../repos';
-import { Quiz } from '../Types';
+import { Quiz } from '../Types.home';
 
 const Intro: FC = () => {
   const [quiz, setQuiz] = useState<Quiz[]>();
