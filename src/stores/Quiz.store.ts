@@ -18,7 +18,7 @@ export default class QuizStore {
       });
     } catch (error) {
       runInAction(() => {
-        this.error = error;
+        this.error = new Error(error);
       });
     }
   };

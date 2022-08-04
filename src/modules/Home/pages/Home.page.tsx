@@ -33,7 +33,7 @@ const HomePage: FC = observer(() => {
   }, [quiz]);
 
   useEffect(() => {
-    if (error) alert(error);
+    if (error) alert(error.message);
   }, [error]);
 
   return (
