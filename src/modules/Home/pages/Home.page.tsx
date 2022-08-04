@@ -24,16 +24,17 @@ const HomePage: FC = observer(() => {
   const { getQuiz, quiz, error, clear } = useStores().quiz;
 
   const handleBegin = useCallback(() => {
-    // navigate here
     clear();
     getQuiz();
   }, []);
 
   useEffect(() => {
-    if (quiz.length > 0) navigate('/');
+    if (quiz.length > 0) navigate('/quiz');
+  }, [quiz]);
 
+  useEffect(() => {
     if (error) alert(error);
-  }, [quiz, error]);
+  }, [error]);
 
   return (
     <Card

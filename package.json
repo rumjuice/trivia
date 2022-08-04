@@ -5,6 +5,7 @@
   "description": "Trivia app for G2i assessment",
   "private": true,
   "dependencies": {
+    "html-entities": "^2.3.3",
     "ky": "^0.31.1",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",

@@ -7,12 +7,13 @@ import {
   Routes,
 } from 'react-router-dom';
 import HomeRoutes from './modules/Home/Routes.home';
+import QuizRoutes from './modules/Quiz/Routes.quiz';
 import { loadStores, StoreProvider } from './stores/Bootstrap.store';
 
 function App(): ReactElement {
   const [store] = useState(loadStores());
 
-  const routes: RouteObject[] = [...HomeRoutes];
+  const routes: RouteObject[] = [...HomeRoutes, ...QuizRoutes];
 
   return (
     <StoreProvider store={store}>
