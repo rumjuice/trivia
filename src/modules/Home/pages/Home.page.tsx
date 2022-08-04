@@ -1,8 +1,11 @@
-import { FC } from 'react';
+import { observer } from 'mobx-react-lite';
+import { FC, useCallback, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card } from '../../../components';
+import { useStores } from '../../../stores/Bootstrap.store';
 import { HomeButton, HomeContent } from '../components';
 
-const Intro: FC = () => {
+const HomePage: FC = observer(() => {
   // const [quiz, setQuiz] = useState<Quiz[]>();
 
   // useEffect(() => {
@@ -17,14 +20,28 @@ const Intro: FC = () => {
   //     alert(error);
   //   }
   // }, []);
+  const navigate = useNavigate();
+  const { getQuiz, quiz, error, clear } = useStores().quiz;
+
+  const handleBegin = useCallback(() => {
+    // navigate here
+    clear();
+    getQuiz();
+  }, []);
+
+  useEffect(() => {
+    if (quiz.length > 0) navigate('/');
+
+    if (error) alert(error);
+  }, [quiz, error]);
 
   return (
     <Card
       header="Welcome to the Trivia Challenge!"
-      footer={<HomeButton onClick={() => null} />}>
+      footer={<HomeButton onClick={handleBegin} />}>
       <HomeContent />
     </Card>
   );
-};
+});
 
-export default Intro;
+export default HomePage;
