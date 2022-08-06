@@ -6,7 +6,7 @@ import { useStores } from '../../../stores/Bootstrap.store';
 import { ResultsButton, ResultsContent } from '../components';
 
 const ResultsPage: FC = observer(() => {
-  const { quiz } = useStores().quiz;
+  const { quiz, clear } = useStores().quiz;
   const navigate = useNavigate();
   const [score, setScore] = useState<number>();
 
@@ -20,21 +20,15 @@ const ResultsPage: FC = observer(() => {
     else calculateScore();
   }, [calculateScore, navigate, quiz.length]);
 
-  // const handleAnswer = useCallback(
-  //   (answer: string) => {
-  //     setAnswer(answer, quizNo);
+  const handleFinish = useCallback(() => {
+    clear();
+    navigate('/', { replace: true });
+  }, [clear, navigate]);
 
-  //     if (quizNo === quiz.length - 1) {
-  //       // go to results
-  //     } else setQuizNo((_no) => _no + 1);
-  //   },
-  //   [quizNo],
-  // );
-
-  return quiz.length > 0 ? (
+  return (
     <Card
       header={`You scored: ${score} / ${quiz.length}`}
-      footer={<ResultsButton onClick={() => null} />}>
+      footer={<ResultsButton onClick={handleFinish} />}>
       <div className="flex flex-col divide-y-2 divide-sky-100 divide-dotted">
         {quiz.map((q) => (
           <ResultsContent
@@ -45,8 +39,6 @@ const ResultsPage: FC = observer(() => {
         ))}
       </div>
     </Card>
-  ) : (
-    <></>
   );
 });
 

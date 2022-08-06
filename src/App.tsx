@@ -23,7 +23,7 @@ function App(): ReactElement {
   return (
     <StoreProvider store={store}>
       <BrowserRouter>
-        <div className="flex h-screen w-screen bg-slate-50">
+        <div className="flex h-screen w-screen bg-slate-50 py-4">
           <Routes>
             {routes.map((route) => (
               <Route
