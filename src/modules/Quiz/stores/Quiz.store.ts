@@ -29,10 +29,6 @@ export default class QuizStore {
       this.quiz[index].correct_answer === answer ? true : false;
   };
 
-  getResults = (): void => {
-    //
-  };
-
   clear = (): void => {
     this.quiz = [];
     this.error = undefined;
