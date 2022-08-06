@@ -25,6 +25,12 @@ export default class QuizStore {
 
   setAnswer = (answer: string, index: number): void => {
     this.quiz[index].answer = answer;
+    this.quiz[index].is_correct =
+      this.quiz[index].correct_answer === answer ? true : false;
+  };
+
+  getResults = (): void => {
+    //
   };
 
   clear = (): void => {

@@ -6,35 +6,21 @@ import { useStores } from '../../../stores/Bootstrap.store';
 import { HomeButton, HomeContent } from '../components';
 
 const HomePage: FC = observer(() => {
-  // const [quiz, setQuiz] = useState<Quiz[]>();
-
-  // useEffect(() => {
-  //   fetchQuiz();
-  // }, []);
-
-  // const fetchQuiz = useCallback(async () => {
-  //   try {
-  //     const data = await repo.get();
-  //     setQuiz(data.results);
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // }, []);
   const navigate = useNavigate();
   const { getQuiz, quiz, error, clear } = useStores().quiz;
 
-  const handleBegin = useCallback(() => {
-    clear();
-    getQuiz();
-  }, []);
-
   useEffect(() => {
     if (quiz.length > 0) navigate('/quiz');
-  }, [quiz]);
+  }, [navigate, quiz]);
 
   useEffect(() => {
     if (error) alert(error.message);
   }, [error]);
+
+  const handleBegin = useCallback(() => {
+    clear();
+    getQuiz();
+  }, [clear, getQuiz]);
 
   return (
     <Card

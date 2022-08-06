@@ -8,12 +8,17 @@ import {
 } from 'react-router-dom';
 import HomeRoutes from './modules/Home/Routes.home';
 import QuizRoutes from './modules/Quiz/Routes.quiz';
+import ResultsRoutes from './modules/Results/Routes.results';
 import { loadStores, StoreProvider } from './stores/Bootstrap.store';
 
 function App(): ReactElement {
   const [store] = useState(loadStores());
 
-  const routes: RouteObject[] = [...HomeRoutes, ...QuizRoutes];
+  const routes: RouteObject[] = [
+    ...HomeRoutes,
+    ...QuizRoutes,
+    ...ResultsRoutes,
+  ];
 
   return (
     <StoreProvider store={store}>
