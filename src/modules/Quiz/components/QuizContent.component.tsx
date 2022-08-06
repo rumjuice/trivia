@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { escape } from '../Utils.quiz';
+import { escape } from '../Quiz.utils';
 
 interface Props {
   question: string;

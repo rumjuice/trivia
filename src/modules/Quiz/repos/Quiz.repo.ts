@@ -1,5 +1,5 @@
 import ky from 'ky';
-import { Quiz } from '../Types.home';
+import { Quiz } from '../Quiz.types';
 
 /**
  * Get quiz questions.

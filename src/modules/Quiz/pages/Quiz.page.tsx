@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react-lite';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useStores } from '../../../bootstrap/Store.bootstrap';
 import { Card } from '../../../components';
-import { useStores } from '../../../stores/Bootstrap.store';
-import { Quiz } from '../../Home/Types.home';
 import { QuizButton, QuizContent } from '../components';
+import { Quiz } from '../Quiz.types';
 
 const QuizPage: FC = observer(() => {
   const navigate = useNavigate();
@@ -26,7 +26,6 @@ const QuizPage: FC = observer(() => {
       setAnswer(answer, quizNo);
 
       if (quizNo === quiz.length - 1) {
-        console.log('end');
         navigate('/results');
       } else setQuizNo((_no) => _no + 1);
     },

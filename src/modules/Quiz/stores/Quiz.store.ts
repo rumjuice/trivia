@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import quizRepo from '../modules/Home/repos';
-import { Quiz } from '../modules/Home/Types.home';
+import { Quiz } from '../Quiz.types';
+import quizRepo from '../repos';
 
 export default class QuizStore {
   quiz: Quiz[] = [];

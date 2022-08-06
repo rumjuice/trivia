@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import { FC, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useStores } from '../../../bootstrap/Store.bootstrap';
 import { Card } from '../../../components';
-import { useStores } from '../../../stores/Bootstrap.store';
 import { HomeButton, HomeContent } from '../components';
 
 const HomePage: FC = observer(() => {

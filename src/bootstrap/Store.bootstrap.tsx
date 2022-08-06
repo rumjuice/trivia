@@ -1,5 +1,5 @@
 import { createContext, FC, useContext } from 'react';
-import QuizStore from './Quiz.store';
+import QuizStore from '../modules/Quiz/stores';
 
 export default class Store {
   quiz: QuizStore;
