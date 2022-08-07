@@ -4,7 +4,7 @@ import { Quiz } from '../Quiz.types';
 /**
  * Get quiz questions.
  *
- * @returns quiz
+ * @returns quiz[]
  */
 async function get(): Promise<{ results: Quiz[] }> {
   return await ky

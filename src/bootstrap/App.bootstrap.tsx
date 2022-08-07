@@ -7,7 +7,7 @@ function App(): ReactElement {
 
   return (
     <StoreProvider store={store}>
-      <div className="flex h-screen w-screen bg-slate-50 py-4">
+      <div className="flex h-screen w-screen bg-neutral-50 py-4 overflow-auto">
         <Router />
       </div>
     </StoreProvider>
