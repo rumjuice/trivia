@@ -1,5 +1,5 @@
-import { FC, memo } from 'react';
-import { escape } from '../../Quiz/Quiz.utils';
+import { decode } from 'html-entities';
+import { ReactElement } from 'react';
 import CheckIcon from './CheckIcon.component';
 import CrossIcon from './CrossIcon.component';
 
@@ -7,9 +7,10 @@ interface Props {
   question: string;
   isCorrect?: boolean;
 }
-const ResultsContent: FC<Props> = ({ question, isCorrect }) => {
+
+const ResultsContent = ({ question, isCorrect }: Props): ReactElement => {
   return (
-    <div className="flex items-center gap-4 p-4">
+    <div className="flex items-center gap-4 rounded-md shadow-md p-4">
       <div>
         {isCorrect ? (
           <CheckIcon className="fill-green-600" />
@@ -17,9 +18,9 @@ const ResultsContent: FC<Props> = ({ question, isCorrect }) => {
           <CrossIcon className="fill-red-600" />
         )}
       </div>
-      <div className="text-sm">{escape(question)}</div>
+      <div className="text-sm">{decode(question)}</div>
     </div>
   );
 };
 
-export default memo(ResultsContent);
+export default ResultsContent;

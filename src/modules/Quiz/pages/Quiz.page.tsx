@@ -1,21 +1,21 @@
 import { observer } from 'mobx-react-lite';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useStores } from '../../../bootstrap/Store.bootstrap';
+import { useStore } from '../../../bootstrap/Store.bootstrap';
 import { Card } from '../../../components';
-import { QuizButton, QuizContent } from '../components';
+import { QuizButton, QuizContent, QuizHeader } from '../components';
 import { Quiz } from '../Quiz.types';
 
 const QuizPage: FC = observer(() => {
   const navigate = useNavigate();
-  const { quiz, setAnswer } = useStores().quiz;
+  const { quiz, setAnswer } = useStore().quiz;
   const [currQuiz, setCurrQuiz] = useState<Quiz>();
   const [quizNo, setQuizNo] = useState<number>(0);
 
   useEffect(() => {
     if (quiz.length === 0) navigate('/', { replace: true });
     else setCurrQuiz(quiz[quizNo]);
-  }, [navigate, quiz, quizNo]);
+  }, []);
 
   useEffect(() => {
     setCurrQuiz(quiz[quizNo]);
@@ -29,18 +29,20 @@ const QuizPage: FC = observer(() => {
         navigate('/results');
       } else setQuizNo((_no) => _no + 1);
     },
-    [navigate, quiz.length, quizNo, setAnswer],
+    [quizNo, navigate],
   );
 
   return currQuiz ? (
     <Card
-      header={currQuiz.category}
+      header={
+        <QuizHeader
+          category={currQuiz.category}
+          quizNo={quizNo + 1}
+          total={quiz.length}
+        />
+      }
       footer={<QuizButton onClick={handleAnswer} />}>
-      <QuizContent
-        question={currQuiz.question}
-        questionNo={quizNo + 1}
-        total={quiz.length}
-      />
+      <QuizContent question={currQuiz.question} />
     </Card>
   ) : (
     <></>

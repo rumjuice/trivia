@@ -1,7 +1,7 @@
 import { createContext, FC, useContext } from 'react';
 import QuizStore from '../modules/Quiz/stores';
 
-export default class Store {
+class Store {
   quiz: QuizStore;
 
   constructor() {
@@ -11,11 +11,11 @@ export default class Store {
 
 export const StoreContext = createContext({} as Store);
 
-export function useStores(): Store {
+export function useStore(): Store {
   return useContext(StoreContext);
 }
 
-export function loadStores(): Store {
+export function loadStore(): Store {
   return new Store();
 }
 

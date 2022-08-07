@@ -1,9 +1,9 @@
 import { ReactElement, useState } from 'react';
 import Router from './Router.bootstrap';
-import { loadStores, StoreProvider } from './Store.bootstrap';
+import { loadStore, StoreProvider } from './Store.bootstrap';
 
 function App(): ReactElement {
-  const [store] = useState(loadStores());
+  const [store] = useState(loadStore());
 
   return (
     <StoreProvider store={store}>
