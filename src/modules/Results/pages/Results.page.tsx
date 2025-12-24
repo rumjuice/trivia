@@ -33,7 +33,7 @@ const ResultsPage: FC = observer(() => {
   return (
     <Card
       header={<ResultsHeader score={score ?? 0} length={quiz.length} />}
-      footer={<Button text="Play Again?" onClick={handleFinish} />}>
+      footer={<Button text="Play Again ?" onClick={handleFinish} />}>
       <div className="flex flex-col gap-2">
         {quiz.map((q: Quiz) => (
           <ResultsContent

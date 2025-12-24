@@ -11,7 +11,7 @@ const Button = ({ text, type, onClick }: Props): ReactElement => {
     case 'true':
       return (
         <button
-          className="bg-green-700 w-full text-white rounded-md shadow-md duration-150 py-3 hover:bg-green-800"
+          className="bg-green-700 w-full text-white font-medium rounded-md shadow-md duration-150 py-3 hover:bg-green-800"
           onClick={onClick}>
           {text}
         </button>
@@ -19,7 +19,7 @@ const Button = ({ text, type, onClick }: Props): ReactElement => {
     case 'false':
       return (
         <button
-          className="bg-red-700 w-full text-white rounded-md shadow-md duration-150 py-3 hover:bg-red-800"
+          className="bg-red-700 w-full text-white font-medium rounded-md shadow-md duration-150 py-3 hover:bg-red-800"
           onClick={onClick}>
           {text}
         </button>
@@ -27,7 +27,7 @@ const Button = ({ text, type, onClick }: Props): ReactElement => {
     default:
       return (
         <button
-          className="bg-black w-full text-white rounded-md shadow-md duration-150 py-3 hover:bg-neutral-900"
+          className="bg-black w-full text-white font-medium rounded-md shadow-md duration-150 py-3 hover:bg-neutral-900"
           onClick={onClick}>
           {text}
         </button>

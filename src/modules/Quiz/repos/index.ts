@@ -1,3 +1,3 @@
-import { get } from './Quiz.repo';
+import * as quizRepo from './Quiz.repo';
 
-export default { get };
+export default quizRepo;

@@ -7,7 +7,19 @@ import { Button, HomeContent, HomeHeader } from '../components';
 
 const HomePage: FC = observer(() => {
   const navigate = useNavigate();
-  const { getQuiz, quiz, error, clear } = useStore().quiz;
+  const {
+    getQuiz,
+    quiz,
+    error,
+    getCategories,
+    categories,
+    setCategory,
+    setDifficulty,
+  } = useStore().quiz;
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   useEffect(() => {
     if (quiz.length > 0) navigate('/quiz');
@@ -18,7 +30,6 @@ const HomePage: FC = observer(() => {
   }, [error]);
 
   const handleBegin = () => {
-    clear();
     getQuiz();
   };
 
@@ -26,7 +37,11 @@ const HomePage: FC = observer(() => {
     <Card
       header={<HomeHeader />}
       footer={<Button text="Begin" onClick={handleBegin} />}>
-      <HomeContent />
+      <HomeContent
+        categories={categories}
+        onSelectCategory={setCategory}
+        onSelectDifficulty={setDifficulty}
+      />
     </Card>
   );
 });

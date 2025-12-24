@@ -1,8 +1,8 @@
 {
   "name": "trivia",
   "version": "0.1.0",
-  "author": "Ramdhani",
-  "description": "Trivia app for G2i assessment",
+  "author": "rumjuice",
+  "description": "Trivia app",
   "private": true,
   "dependencies": {
     "html-entities": "^2.3.3",
