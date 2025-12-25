@@ -1,15 +1,32 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactElement, useState } from 'react';
 import Router from './Router.bootstrap';
 import { loadStore, StoreProvider } from './Store.bootstrap';
 
 function App(): ReactElement {
   const [store] = useState(loadStore());
+  const [queryClient] = useState(
+    new QueryClient({
+      defaultOptions: {
+        queries: {
+          retryOnMount: false,
+          refetchOnWindowFocus: false,
+          retry: false,
+        },
+        mutations: {
+          retry: false,
+        },
+      },
+    }),
+  );
 
   return (
     <StoreProvider store={store}>
-      <div className="flex h-screen w-screen bg-neutral-50 py-4 overflow-auto">
-        <Router />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="flex h-screen w-screen bg-neutral-50 py-4 overflow-auto">
+          <Router />
+        </div>
+      </QueryClientProvider>
     </StoreProvider>
   );
 }

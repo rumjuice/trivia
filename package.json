@@ -5,6 +5,7 @@
   "description": "Trivia app",
   "private": true,
   "dependencies": {
+    "@tanstack/react-query": "^5.90.12",
     "html-entities": "^2.3.3",
     "ky": "^0.31.1",
     "mobx": "^6.6.1",
