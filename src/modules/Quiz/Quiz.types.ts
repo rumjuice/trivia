@@ -1,3 +1,13 @@
+export enum ResponseCode {
+  SUCCESS,
+  NO_RESULTS,
+  INVALID_PARAMETER,
+  TOKEN_NOT_FOUND,
+  TOKEN_EMPTY,
+  RATE_LIMIT,
+}
+export type Difficulty = 'easy' | 'medium' | 'hard';
+
 export type Quiz = {
   category: string;
   correct_answer: string;
@@ -10,11 +20,14 @@ export type Category = {
   id: number;
   name: string;
 };
-export type Difficulty = 'easy' | 'medium' | 'hard';
 
 export type GetQuizParams = {
   categoryId?: number;
   difficulty?: Difficulty;
   type?: 'boolean' | 'multiple';
   amount?: number;
+};
+export type GetQuizResponse = {
+  response_code: ResponseCode;
+  results: Quiz[];
 };

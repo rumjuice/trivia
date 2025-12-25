@@ -1,5 +1,7 @@
 # Trivia
 
+## Quick trivia app using open trivia database
+
 ### Author: Ramdhani
 
 ---
@@ -13,3 +15,7 @@
 
 - `yarn install`
 - `yarn start`
+
+### Future improvements
+
+- Multiplayer

@@ -1,12 +1,12 @@
 import ky from 'ky';
-import { Category, GetQuizParams, Quiz } from '../Quiz.types';
+import { Category, GetQuizParams, GetQuizResponse } from '../Quiz.types';
 
 /**
  * Get quiz questions.
  *
  * @returns quiz[]
  */
-async function get(params: GetQuizParams): Promise<{ results: Quiz[] }> {
+async function get(params: GetQuizParams): Promise<GetQuizResponse> {
   return await ky
     .get('https://opentdb.com/api.php', {
       searchParams: {

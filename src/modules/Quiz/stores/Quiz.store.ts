@@ -36,13 +36,21 @@ export default class QuizStore {
     try {
       const categories = await quizRepo.getCategories();
       runInAction(() => {
-        this.categories = categories.trivia_categories;
+        this.categories = categories.trivia_categories.sort((a, b) =>
+          a.name.localeCompare(b.name),
+        );
       });
     } catch (error) {
       runInAction(() => {
         this.error = new Error(error);
       });
     }
+  };
+
+  setQuiz = (quiz: Quiz[]): void => {
+    runInAction(() => {
+      this.quiz = quiz;
+    });
   };
 
   setAnswer = (answer: string, index: number): void => {

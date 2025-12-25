@@ -14,7 +14,7 @@ const HomeContent = ({
     <div className="flex flex-col gap-4 text-center font-medium">
       <div className="flex gap-2">
         <select
-          className="p-2 rounded-md border border-gray-300"
+          className="flex-1 p-2 rounded-md border border-gray-300"
           onChange={(e) => onSelectCategory(Number(e.target.value))}>
           <option value="">Any Category</option>
           {categories?.map((category) => (
