@@ -12,9 +12,9 @@ const HomeContent = ({
 }): ReactElement => {
   return (
     <div className="flex flex-col gap-4 text-center font-medium">
-      <div className="flex gap-2">
+      <div className="flex gap-4">
         <select
-          className="flex-1 p-2 rounded-md border border-gray-300"
+          className="flex-1 basis-2/3 min-w-0 p-2 rounded-md border border-gray-300"
           onChange={(e) => onSelectCategory(Number(e.target.value))}>
           <option value="">Any Category</option>
           {categories?.map((category) => (
@@ -24,7 +24,7 @@ const HomeContent = ({
           ))}
         </select>
         <select
-          className="p-2 rounded-md border border-gray-300"
+          className="flex-1 basis-1/3 min-w-0 p-2 rounded-md border border-gray-300"
           onChange={(e) => onSelectDifficulty(e.target.value as Difficulty)}>
           <option value="">Any Difficulty</option>
           <option value="easy">Easy</option>

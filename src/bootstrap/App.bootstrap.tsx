@@ -23,7 +23,7 @@ function App(): ReactElement {
   return (
     <StoreProvider store={store}>
       <QueryClientProvider client={queryClient}>
-        <div className="flex h-screen w-screen bg-neutral-50 py-4 overflow-auto">
+        <div className="flex h-full w-full bg-neutral-50 overflow-auto">
           <Router />
         </div>
       </QueryClientProvider>

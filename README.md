@@ -4,6 +4,8 @@
 
 ### Author: Ramdhani
 
+> [Play here](https://trivia.rumjuice.me)
+
 ---
 
 ## Pre-requisite
